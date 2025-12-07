@@ -1,0 +1,28 @@
+name: Daily Telegram Message
+
+on:
+  schedule:
+    - cron: "0 18 * * *"   # every day at 18:00 UTC
+  workflow_dispatch:       # allow manual trigger
+
+jobs:
+  send-telegram:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Send daily Telegram message
+        run: node send.js
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}

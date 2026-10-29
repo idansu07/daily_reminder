@@ -2,7 +2,7 @@ const fetch = require("node-fetch");
 
 const token = process.env.TELEGRAM_BOT_TOKEN;
 const chatId = process.env.TELEGRAM_CHAT_ID;
-const message = "ברנטליקס";
+const message = "פינטפלה";
 
 async function sendMessage() {
   const url = `https://api.telegram.org/bot${token}/sendMessage`;

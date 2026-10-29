@@ -2,7 +2,7 @@ name: Daily Telegram Message
 
 on:
   schedule:
-    - cron: "00 18 * * *"   # every day at 16:15:00 UTC
+       - cron: '06 18 * * *'
   workflow_dispatch:       # allow manual trigger
 
 jobs:

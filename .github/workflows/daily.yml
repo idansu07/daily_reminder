@@ -1,9 +1,9 @@
 name: Daily Telegram Message
 
 on:
-  schedule:
-       - cron: '06 18 * * *'
-  workflow_dispatch:       # allow manual trigger
+  workflow_dispatch:        # allow manual trigger
+  repository_dispatch:
+    types: [trigger-daily-telegram] # allows external schedulers to trigger it via webhook
 
 jobs:
   send-telegram:
